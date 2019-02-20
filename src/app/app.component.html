@@ -1,0 +1,17 @@
+<div class="center">
+  <file-drop
+    hearderText="Drag and Drop your PDF"
+    (onFileDrop)="fileDropped($event)"
+  >
+    <span>Drag and Drop your PDF</span></file-drop
+  >
+
+  <mat-table [dataSource]="files">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let file">{{ file.relativePath }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let rowData; columns: columnsToDisplay"></mat-row>
+  </mat-table>
+</div>
